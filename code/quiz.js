@@ -8,8 +8,12 @@ function Quiz(questions) {
     return currentQuestionIndex;
   };
 
-  this.setCurrentQuestionIndex = function () {
-    return currentQuestionIndex++;
+  this.setCurrentQuestionIndexNext = function () {
+    currentQuestionIndex++;
+  };
+
+  this.setCurrentQuestionIndexPrevious = function () {
+    currentQuestionIndex--;
   };
 
   this.getScore = function () {
@@ -30,13 +34,26 @@ Quiz.prototype.getQuestion = function () {
 };
 
 Quiz.prototype.nextQuestion = function () {
-  this.setCurrentQuestionIndex();
+  this.setCurrentQuestionIndexNext();
+};
+
+Quiz.prototype.previousQuestion = function () {
+  this.setCurrentQuestionIndexPrevious();
 };
 
 Quiz.prototype.checkAnswer = function (answer) {
+  console.log(answer);
   if (this.questions[this.getCurrentQuestionIndex()].isCorrectAnswer(answer)) {
     this.incScore();
   }
+};
+
+Quiz.prototype.isAnswered = function (answered) {
+  this.questions[this.getCurrentQuestionIndex()].setAnswered(answered);
+};
+
+Quiz.prototype.givenAnswer = function () {
+  return this.questions[this.getCurrentQuestionIndex()].getGivenAnswer();
 };
 
 export default Quiz;

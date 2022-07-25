@@ -2,12 +2,12 @@ import Question from "./question.js";
 const data = [
   {
     text: "question1",
-    questions: [1, 2, 3, 4],
+    options: [1, 2, 3, 4],
     answer: "1",
   },
   {
     text: "question2",
-    questions: [1, 2, 3, 4],
+    options: [1, 2, 3, 4],
     answer: "2",
   },
 ];
