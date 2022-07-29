@@ -10,9 +10,7 @@ function initialize() {
   const previous = document.querySelector(".previous");
   setButtonState();
 
-  if (!quiz.isAtEnd()) {
-    loadQuestion(quiz.getQuestion());
-  }
+  loadQuestion(quiz.getQuestion());
 
   // Add current question to the DOM
   function loadQuestion(currentQuestion) {
@@ -44,7 +42,7 @@ function initialize() {
 
     options.addEventListener("change", setAnswerd);
 
-    // Options change event handler
+    // radio buttons change event handler
     function setAnswerd(e) {
       quiz.setGivenAnswer(e.target.value);
     }
