@@ -19,7 +19,7 @@ function initialize() {
     const text = document.querySelector(".question-text");
     const options = document.querySelector(".question-options");
 
-    text.textContent = currentQuestion.text;
+    text.textContent = `${currentQuestion.id}- ${currentQuestion.text}`;
     options.replaceChildren("");
 
     [].forEach.call(currentQuestion.options, (option, index) => {
@@ -36,6 +36,7 @@ function initialize() {
         currentQuestion.getGivenAnswer().toString() === option.toString();
       label.setAttribute("for", `option-${index + 1}`);
       label.textContent = option;
+
       li.appendChild(input);
       li.appendChild(label);
       options.appendChild(li);

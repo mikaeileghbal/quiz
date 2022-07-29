@@ -1,17 +1,20 @@
 import Question from "./question.js";
 const data = [
   {
-    text: "question1",
+    id: 1,
+    text: "Read the following newspaper advertisement. Select the best response for each question.",
     options: [1, 2, 3, 4],
     answer: "1",
   },
   {
-    text: "question2",
+    id: 2,
+    text: "Read the following newspaper advertisement. Select the best response for each question.",
     options: [1, 2, 3, 4],
     answer: "2",
   },
   {
-    text: "question3",
+    id: 3,
+    text: "Read the following newspaper advertisement. Select the best response for each question.",
     options: [1, 2, 3, 4],
     answer: "4",
   },

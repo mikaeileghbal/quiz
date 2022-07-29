@@ -1,4 +1,5 @@
-function Question({ text, options = [], answer }) {
+function Question({ id, text, options = [], answer }) {
+  this.id = id;
   this.text = text;
   this.options = options;
   this.answer = answer;
