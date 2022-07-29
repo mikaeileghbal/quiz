@@ -10,13 +10,18 @@ const data = [
     options: [1, 2, 3, 4],
     answer: "2",
   },
+  {
+    text: "question3",
+    options: [1, 2, 3, 4],
+    answer: "4",
+  },
 ];
 
 function getQuestions() {
   const questions = [];
 
-  return data.reduce((result, next) => {
-    result.push(new Question(next));
+  return data.reduce((result, item) => {
+    result.push(new Question(item));
     return result;
   }, questions);
 }

@@ -1,59 +1,49 @@
 function Quiz(questions) {
+  this.currentQuestionIndex = 0;
+  this.score = 0;
   this.questions = questions || [];
-
-  let currentQuestionIndex = 0;
-  let score = 0;
-
-  this.getCurrentQuestionIndex = function () {
-    return currentQuestionIndex;
-  };
-
-  this.setCurrentQuestionIndexNext = function () {
-    currentQuestionIndex++;
-  };
-
-  this.setCurrentQuestionIndexPrevious = function () {
-    currentQuestionIndex--;
-  };
-
-  this.getScore = function () {
-    return score;
-  };
-
-  this.incScore = function () {
-    score++;
-  };
 }
 
-Quiz.prototype.isEnded = function () {
-  return this.getCurrentQuestionIndex() === this.questions.length;
+Quiz.prototype.isAtEnd = function () {
+  return this.currentQuestionIndex === this.questions.length - 1;
+};
+
+Quiz.prototype.isAtStart = function () {
+  return this.currentQuestionIndex === 0;
 };
 
 Quiz.prototype.getQuestion = function () {
-  return this.questions[this.getCurrentQuestionIndex()];
+  return this.questions[this.currentQuestionIndex];
 };
 
 Quiz.prototype.nextQuestion = function () {
-  this.setCurrentQuestionIndexNext();
+  if (!this.isAtEnd()) this.currentQuestionIndex++;
 };
 
 Quiz.prototype.previousQuestion = function () {
-  this.setCurrentQuestionIndexPrevious();
-};
-
-Quiz.prototype.checkAnswer = function (answer) {
-  console.log(answer);
-  if (this.questions[this.getCurrentQuestionIndex()].isCorrectAnswer(answer)) {
-    this.incScore();
-  }
-};
-
-Quiz.prototype.isAnswered = function (answered) {
-  this.questions[this.getCurrentQuestionIndex()].setAnswered(answered);
+  if (!this.isAtStart()) this.currentQuestionIndex--;
 };
 
 Quiz.prototype.givenAnswer = function () {
-  return this.questions[this.getCurrentQuestionIndex()].getGivenAnswer();
+  return this.questions[this.currentQuestionIndex].getGivenAnswer();
+};
+
+Quiz.prototype.setGivenAnswer = function (asnwer) {
+  this.questions[this.currentQuestionIndex].givenAnswer = asnwer;
+};
+
+Quiz.prototype.getIndex = function () {
+  return this.currentQuestionIndex;
+};
+
+Quiz.prototype.getScore = function () {
+  this.score = 0;
+  this.questions.forEach((question) => {
+    if (question.isCorrectAnswer()) {
+      this.score++;
+    }
+  });
+  return this.score;
 };
 
 export default Quiz;

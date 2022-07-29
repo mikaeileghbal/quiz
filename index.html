@@ -8,41 +8,81 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="quiz-container">
-      <h2>test your javascript</h2>
-      <div class="progress-wrapper">
-        <div class="progress"></div>
+    <header>
+      <div class="wrapper">
+        <div class="logo"><span>goethe</span><span>institut</span></div>
+        <div class="searcc">some link</div>
       </div>
+    </header>
 
-      <span class="score">0</span>
-      <p class="question-text">
-        read the following question and select appropriate answer
-      </p>
+    <main class="main">
+      <div class="wrapper">
+        <div class="tonav">
+          <nav>
+            <ul>
+              <li><a href="">home</a></li>
+              <li><a href="">my portfolio</a></li>
+              <li><a href="">about me</a></li>
+              <li><a href="">my projects</a></li>
+              <li><a href="">contact me</a></li>
+            </ul>
+          </nav>
+        </div>
 
-      <ul class="question-options">
-        <!-- <li>
-          <input type="checkbox" name="option-a" id="option-a" />
-          <label for="option-a">a</label>
-        </li>
-        <li>
-          <input type="checkbox" name="option-b" id="option-b" />
-          <label for="option-b">b</label>
-        </li>
-        <li>
-          <input type="checkbox" name="option-c" id="option-c" />
-          <label for="option-c">c</label>
-        </li>
-        <li>
-          <input type="checkbox" name="option-d" id="option-d" />
-          <label for="option-d">d</label>
-        </li> -->
-      </ul>
+        <div class="quiz-container">
+          <h2>test your javascript</h2>
+          <div class="progress-wrapper">
+            <div class="progress"></div>
+          </div>
 
-      <div class="button-wrapper">
-        <button type="button" class="previous">Previous</button>
-        <button type="button" class="next">next</button>
+          <p class="question-text">
+            read the following question and select appropriate answer
+          </p>
+
+          <ul class="question-options">
+            <!-- <li>
+            <input type="checkbox" name="option-a" id="option-a" />
+            <label for="option-a">a</label>
+          </li>
+          <li>
+            <input type="checkbox" name="option-b" id="option-b" />
+            <label for="option-b">b</label>
+          </li>
+          <li>
+            <input type="checkbox" name="option-c" id="option-c" />
+            <label for="option-c">c</label>
+          </li>
+          <li>
+            <input type="checkbox" name="option-d" id="option-d" />
+            <label for="option-d">d</label>
+          </li> -->
+          </ul>
+
+          <div class="button-wrapper">
+            <button type="button" class="previous">Previous</button>
+            <button type="button" class="next">next</button>
+          </div>
+
+          <div class="score-wrapper">
+            <span class="score">0</span>
+          </div>
+        </div>
       </div>
-    </div>
+    </main>
+
+    <footer>
+      <div class="wrapper">
+        <div class="copuright"></div>
+        <div class="links">
+          <ul>
+            <li><a href="">contact</a></li>
+            <li><a href="">terms</a></li>
+            <li><a href="">RSS</a></li>
+            <li><a href="">newsletter</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
 
     <script src="code/index.js" type="module"></script>
   </body>
