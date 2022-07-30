@@ -171,14 +171,33 @@ main li:nth-child(1) > a {
   background-color: #e4e6e7;
 }
 .section-quiz .progress-wrapper .progress {
-  width: 10%;
+  width: 0%;
   background-color: var(--theme-color);
   height: 100%;
+  transition: all 0.5s ease;
 }
 .section-quiz p {
   margin-bottom: 20px;
   font-size: 15px;
   font-weight: 600;
+  -webkit-animation: slide 0.5s;
+          animation: slide 0.5s;
+}
+@-webkit-keyframes slide {
+  0% {
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slide {
+  0% {
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 .section-quiz ul > li {
   display: block;
@@ -186,8 +205,20 @@ main li:nth-child(1) > a {
   padding: 5px;
   color: white;
 }
+.section-quiz ul > li span {
+  color: var(--balck-light);
+  margin-left: 0.8em;
+}
 .section-quiz input[type=radio] {
   cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.section-quiz input[type=radio]:checked ~ label {
+  background-color: white;
+  color: var(--balck-light);
+  border: 1px solid var(--balck-light);
 }
 .section-quiz label {
   padding: 2px 16px;

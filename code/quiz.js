@@ -46,4 +46,10 @@ Quiz.prototype.getScore = function () {
   return this.score;
 };
 
+Quiz.prototype.progress = function () {
+  return Math.round(
+    ((this.currentQuestionIndex + 1) / this.questions.length) * 100
+  );
+};
+
 export default Quiz;

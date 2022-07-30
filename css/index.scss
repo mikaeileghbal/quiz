@@ -189,9 +189,10 @@ main {
     background-color: #e4e6e7;
 
     .progress {
-      width: 10%;
+      width: 0%;
       background-color: var(--theme-color);
       height: 100%;
+      transition: all 0.5s ease;
     }
   }
 
@@ -199,6 +200,16 @@ main {
     margin-bottom: 20px;
     font-size: 15px;
     font-weight: 600;
+    animation: slide 0.5s;
+  }
+
+  @keyframes slide {
+    0% {
+      transform: translateX(200px);
+    }
+    100% {
+      transform: translateX(0);
+    }
   }
 
   ul > li {
@@ -206,10 +217,22 @@ main {
     margin-bottom: 10px;
     padding: 5px;
     color: white;
+
+    span {
+      color: var(--balck-light);
+      margin-left: 0.8em;
+    }
   }
 
   input[type="radio"] {
     cursor: pointer;
+    appearance: none;
+  }
+
+  input[type="radio"]:checked ~ label {
+    background-color: white;
+    color: var(--balck-light);
+    border: 1px solid var(--balck-light);
   }
 
   label {

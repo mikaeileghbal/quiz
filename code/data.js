@@ -3,20 +3,20 @@ const data = [
   {
     id: 1,
     text: "Read the following newspaper advertisement. Select the best response for each question.",
-    options: [1, 2, 3, 4],
-    answer: "1",
+    options: ["JavaScript", "Closure", "Dom Manipulation", "RESTFull API"],
+    answer: "A",
   },
   {
     id: 2,
     text: "Read the following newspaper advertisement. Select the best response for each question.",
-    options: [1, 2, 3, 4],
-    answer: "2",
+    options: ["JavaScript", "Closure", "Dom Manipulation", "RESTFull API"],
+    answer: "B",
   },
   {
     id: 3,
     text: "Read the following newspaper advertisement. Select the best response for each question.",
-    options: [1, 2, 3, 4],
-    answer: "4",
+    options: ["JavaScript", "Closure", "Dom Manipulation", "RESTFull API"],
+    answer: "D",
   },
 ];
 

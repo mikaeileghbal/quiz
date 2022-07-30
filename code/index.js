@@ -8,7 +8,7 @@ function initialize() {
 
   const next = document.querySelector(".next");
   const previous = document.querySelector(".previous");
-  setButtonState();
+  updateUi();
 
   loadQuestion(quiz.getQuestion());
 
@@ -20,23 +20,30 @@ function initialize() {
     text.textContent = `${currentQuestion.id}- ${currentQuestion.text}`;
     options.replaceChildren("");
 
+    const labels = ["A", "B", "C", "D"];
+
     [].forEach.call(currentQuestion.options, (option, index) => {
       const li = document.createElement("li");
       const input = document.createElement("input");
       const label = document.createElement("label");
+      const span = document.createElement("span");
+
       input.classList.add("option");
       input.name = `option-${index + 1}`;
       input.id = `option-${index + 1}`;
       input.type = "radio";
       input.name = "options";
-      input.value = `${index + 1}`;
+      input.value = `${labels[index]}`;
       input.checked =
-        currentQuestion.getGivenAnswer().toString() === option.toString();
+        currentQuestion.getGivenAnswer().toString() ===
+        labels[index].toString();
       label.setAttribute("for", `option-${index + 1}`);
-      label.textContent = option;
+      label.textContent = labels[index];
+      span.textContent = option;
 
       li.appendChild(input);
       li.appendChild(label);
+      li.appendChild(span);
       options.appendChild(li);
     });
 
@@ -55,23 +62,34 @@ function initialize() {
 
   // Enable or disable next and previous buttons
   function setButtonState() {
-    next.disabled = quiz.isAtEnd();
+    //next.disabled = quiz.isAtEnd();
     previous.disabled = quiz.isAtStart();
+  }
+
+  // Update ui
+  function updateUi() {
+    setButtonState();
+    updateProgress();
+  }
+
+  // Update progress
+  function updateProgress() {
+    const progress = document.querySelector(".progress");
+    progress.style.width = `${quiz.progress()}%`;
   }
 
   // Next button event handler
   function moveToNextQuestion() {
     quiz.nextQuestion();
     loadQuestion(quiz.getQuestion());
-    setButtonState();
-    if (quiz.isAtEnd()) showScore();
+    updateUi();
   }
 
   // Previous button event handler
   function moveToPreviousQuestion() {
     quiz.previousQuestion();
     loadQuestion(quiz.getQuestion());
-    setButtonState();
+    updateUi();
   }
 
   next.addEventListener("click", moveToNextQuestion);
