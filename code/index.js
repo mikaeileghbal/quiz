@@ -52,14 +52,18 @@ function initialize() {
     // radio buttons change event handler
     function setAnswerd(e) {
       quiz.setGivenAnswer(e.target.value);
+      resetScore("");
     }
+  }
+
+  // Reset score display
+  function resetScore(score) {
+    document.querySelector(".score").textContent = score;
   }
 
   // Get quiz score and display it on the DOM
   function showScore() {
-    const score = document.querySelector(".score");
-    score.textContent = `Score: ${quiz.getScore()}/${quiz.getLength()}`;
-    console.log(quiz.getScore());
+    resetScore(`Score: ${quiz.getScore()}/${quiz.getLength()}`);
   }
 
   // Enable or disable next and previous buttons
@@ -70,7 +74,7 @@ function initialize() {
     } else {
       next.textContent = "Continue";
     }
-    document.querySelector(".score").textContent = "";
+    resetScore("");
   }
 
   // Update ui
