@@ -220,6 +220,9 @@ main li:nth-child(1) > a {
   color: var(--balck-light);
   border: 1px solid var(--balck-light);
 }
+.section-quiz input[type=radio]:checked ~ span {
+  font-weight: 600;
+}
 .section-quiz label {
   padding: 2px 16px;
   background-color: #788287;
@@ -249,4 +252,11 @@ footer .links {
 }
 footer ul > li {
   display: inline-block;
+}
+
+.score-wrapper {
+  margin-top: 30px;
+}
+.score-wrapper .score {
+  font-weight: 600;
 }/*# sourceMappingURL=index.css.map */

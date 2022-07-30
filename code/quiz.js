@@ -2,6 +2,7 @@ function Quiz(questions) {
   this.currentQuestionIndex = 0;
   this.score = 0;
   this.questions = questions || [];
+  this.completed = false;
 }
 
 Quiz.prototype.isAtEnd = function () {
@@ -17,10 +18,15 @@ Quiz.prototype.getQuestion = function () {
 };
 
 Quiz.prototype.nextQuestion = function () {
-  if (!this.isAtEnd()) this.currentQuestionIndex++;
+  if (!this.isAtEnd()) {
+    this.currentQuestionIndex++;
+  } else {
+    this.completed = true;
+  }
 };
 
 Quiz.prototype.previousQuestion = function () {
+  this.completed = false;
   if (!this.isAtStart()) this.currentQuestionIndex--;
 };
 
@@ -50,6 +56,14 @@ Quiz.prototype.progress = function () {
   return Math.round(
     ((this.currentQuestionIndex + 1) / this.questions.length) * 100
   );
+};
+
+Quiz.prototype.isCompleted = function () {
+  return this.completed;
+};
+
+Quiz.prototype.getLength = function () {
+  return this.questions.length;
 };
 
 export default Quiz;

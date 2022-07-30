@@ -235,6 +235,10 @@ main {
     border: 1px solid var(--balck-light);
   }
 
+  input[type="radio"]:checked ~ span {
+    font-weight: 600;
+  }
+
   label {
     padding: 2px 16px;
     background-color: #788287;
@@ -273,5 +277,13 @@ footer {
 
   ul > li {
     display: inline-block;
+  }
+}
+
+.score-wrapper {
+  margin-top: 30px;
+
+  .score {
+    font-weight: 600;
   }
 }

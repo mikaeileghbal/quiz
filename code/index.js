@@ -57,13 +57,20 @@ function initialize() {
 
   // Get quiz score and display it on the DOM
   function showScore() {
+    const score = document.querySelector(".score");
+    score.textContent = `Score: ${quiz.getScore()}/${quiz.getLength()}`;
     console.log(quiz.getScore());
   }
 
   // Enable or disable next and previous buttons
   function setButtonState() {
-    //next.disabled = quiz.isAtEnd();
     previous.disabled = quiz.isAtStart();
+    if (quiz.isAtEnd()) {
+      next.textContent = "Show score";
+    } else {
+      next.textContent = "Continue";
+    }
+    document.querySelector(".score").textContent = "";
   }
 
   // Update ui
@@ -81,8 +88,12 @@ function initialize() {
   // Next button event handler
   function moveToNextQuestion() {
     quiz.nextQuestion();
-    loadQuestion(quiz.getQuestion());
-    updateUi();
+    if (quiz.isCompleted()) {
+      showScore();
+    } else {
+      loadQuestion(quiz.getQuestion());
+      updateUi();
+    }
   }
 
   // Previous button event handler
