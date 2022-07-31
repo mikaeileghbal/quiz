@@ -78,7 +78,7 @@ ul {
 }
 
 button {
-  padding: 8px 40px;
+  padding: 8px 30px;
   border: none;
   background-color: white;
   font-size: 18px;
@@ -86,6 +86,10 @@ button {
   text-transform: capitalize;
   color: var(--theme-color);
   position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   cursor: pointer;
 }
 button::after {
@@ -95,6 +99,7 @@ button::after {
   height: 24px;
   border-left: 8px solid var(--theme-color);
   border-top: 8px solid var(--theme-color);
+  transition: all 0.3s ease;
 }
 button:disabled {
   visibility: hidden;
@@ -107,10 +112,16 @@ button:disabled {
   transform: rotate(135deg);
   right: 5px;
 }
+.next:hover::after {
+  right: -5px;
+}
 
 .previous::after {
   left: 5px;
   transform: rotate(-45deg);
+}
+.previous:hover::after {
+  left: -5px;
 }
 
 header {
@@ -256,6 +267,10 @@ footer ul > li {
 
 .score-wrapper {
   margin-top: 30px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .score-wrapper .score {
   font-weight: 600;
